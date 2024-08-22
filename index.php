@@ -1,5 +1,5 @@
-<?php include('./src/templates/header.php');
-?>
+<?php include('./src/templates/header.php'); ?>
+<?php include('./src/config/db.php'); ?>
 
 <div class="container">
     <h1>Listado de Proveedores</h1>
@@ -14,14 +14,35 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1234567</td>
-                <td>Proveedor 1</td>
-                <td>5555-5555</td>
-                <td>Dirección 1</td>
-                <td>Activo</td>
-            </tr>
-            <!-- Aquí irán más filas de ejemplo -->
+        <?php 
+            // Consulta para obtener los proveedores
+            $query = "SELECT NIT, NombreCompleto, Telefono, Direccion, Activo FROM Proveedor";
+            $result = $mysqli->query($query);
+
+            if ($result) {
+                // Verifica si hay filas en el resultado
+                if ($result->num_rows > 0) {
+                    // Recorre cada fila del resultado
+                    while ($row = $result->fetch_assoc()) {
+                        $estado = ($row['Activo'] ==1) ? 'Activo' : 'Inactivo';
+                        echo "<tr>";
+                        echo "<td>" . htmlspecialchars($row['NIT']) . "</td>";
+                        echo "<td>" . htmlspecialchars($row['NombreCompleto']) . "</td>";
+                        echo "<td>" . htmlspecialchars($row['Telefono']) . "</td>";
+                        echo "<td>" . htmlspecialchars($row['Direccion']) . "</td>";
+                        echo "<td>" . $estado . "</td>";
+                        echo "</tr>";
+                    }
+                } else {
+                    echo "<tr><td colspan='5'>No hay proveedores registrados.</td></tr>";
+                }
+            } else {
+                echo "<tr><td colspan='5'>Error en la consulta: " . $mysqli->error . "</td></tr>";
+            }
+
+            // Cierra la conexión a la base de datos
+            $mysqli->close();
+        ?>
         </tbody>
     </table>
 </div>
