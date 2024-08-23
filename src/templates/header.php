@@ -11,10 +11,9 @@
         <div class="container">
             <a href="#" class="brand">Proveedores</a>
             <ul class="nav-links">
-                <li class="btn-nav"><a href="index.php">Principal</a></li>
+                <li class="btn-nav"><a href="index.php">Inicio</a></li>
                 <li class="btn-nav"><a href="proveedores-activo.php">Proveedores Activos</a></li>
                 <li class="btn-nav"><a href="formulario.php">Crear Proveedor</a></li>
-                <li class="btn-nav"><a href="#">Inactivar Proveedor</a></li>
             </ul>
         </div>
     </nav>

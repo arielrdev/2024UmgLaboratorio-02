@@ -11,6 +11,7 @@
                 <th>Teléfono</th>
                 <th>Dirección</th>
                 <th>Activo</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -26,12 +27,18 @@
                     while ($row = $result->fetch_assoc()) {
                         $estado = ($row['Activo'] ==1) ? 'Activo' : 'Inactivo';
                         echo "<tr>";
-                        echo "<td>" . htmlspecialchars($row['NIT']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['NombreCompleto']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['Telefono']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['Direccion']) . "</td>";
-                        echo "<td>" . $estado . "</td>";
-                        echo "</tr>";
+                            echo "<td>" . htmlspecialchars($row['NIT']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['NombreCompleto']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['Telefono']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['Direccion']) . "</td>";
+                            echo "<td>" . $estado . "</td>";
+                            
+                            //Boton INACTIVAR - ACTIVAR
+                            echo "<td>";
+                                echo $row['Activo'] == 1 
+                                ? "<a href='acciones.php?NIT=" . $row['NIT'] . "&accion=inactivar'>Inactivar</a>" 
+                                : "<a href='acciones.php?NIT=" . $row['NIT'] . "&accion=activar'>Activar</a>";
+                            echo "</td>";
                     }
                 } else {
                     echo "<tr><td colspan='5'>No hay proveedores registrados.</td></tr>";
