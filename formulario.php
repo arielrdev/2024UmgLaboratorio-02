@@ -35,7 +35,8 @@
         
                     if ($stmt->execute()) {
                         /** Redireccionar */
-                        header('Location: index.php');
+                        header('Location: index.php?message=Proveedor%20Creado%20Correctamente');
+                        exit();
                     } else {
                         echo "<p class='error-message'>Error al agregar proveedor: " . $stmt->error . "</p>";
                     }

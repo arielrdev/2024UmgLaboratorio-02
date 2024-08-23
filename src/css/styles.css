@@ -61,7 +61,7 @@ h1 {
     color: #333;
     text-decoration: none;
     font-size: 16px;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 .nav-links a:visited {
@@ -69,13 +69,12 @@ h1 {
 }
 
 .nav-links a:hover {
-    color: white;
+    color: #fff; /* Cambia el color del texto al pasar el mouse */
+    background-color: #555; /* Agrega un color de fondo al pasar el mouse */
 }
-
 
 .btn-nav {
     display: inline-block;
-    color: #fff;
     padding: 10px 20px;
     border: solid #ccc;
     border-radius: 4px;
@@ -83,11 +82,18 @@ h1 {
     transition: background-color 0.3s ease;
 }
 
+.btn-nav a {
+    color: #fff; 
+    text-decoration: none; 
+}
+
 .btn-nav:hover {
     background-color: #555;
 }
 
-
+.btn-nav:hover a {
+    color: #fff;
+}
 .form-group {
     margin-bottom: 15px;
 }
@@ -161,11 +167,6 @@ h1 {
     }
 }
 
-/* .error {
-    color: red;
-    margin-top: 10px;
-} */
-
 .error-message {
     color: red;
     font-size: 0.875em;
@@ -173,6 +174,58 @@ h1 {
     margin-top: 5px;
 }
 
+.btn-accion {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 4px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    color: #fff;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+/* Estilo para el botón de inactivar */
+.btn-inactivar {
+    background-color: #f44336; /* Rojo */
+}
+
+.btn-inactivar:hover {
+    background-color: #d32f2f; /* Rojo oscuro */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo para el botón de activar */
+.btn-activar {
+    background-color: #4CAF50; /* Verde */
+}
+
+.btn-activar:hover {
+    background-color: #388E3C; /* Verde oscuro */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.toast {
+    visibility: hidden; /* Ocultar el toast por defecto */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #4CAF50; /* Color verde */
+    color: #fff;
+    padding: 15px;
+    border-radius: 4px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.toast.show {
+    visibility: visible;
+    opacity: 1;
+}
 
 .footer {
     background-color: #333;

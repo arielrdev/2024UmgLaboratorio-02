@@ -17,3 +17,6 @@
             </ul>
         </div>
     </nav>
+    <!--Toast-->
+    <div id="toast" class="toast"></div>
+    <script src="src/js/toast.js"></script>

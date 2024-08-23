@@ -36,8 +36,8 @@
                             //Boton INACTIVAR - ACTIVAR
                             echo "<td>";
                                 echo $row['Activo'] == 1 
-                                ? "<a href='acciones.php?NIT=" . $row['NIT'] . "&accion=inactivar'>Inactivar</a>" 
-                                : "<a href='acciones.php?NIT=" . $row['NIT'] . "&accion=activar'>Activar</a>";
+                                ? "<a href='acciones.php?NIT=" . $row['NIT'] . "&accion=inactivar' class='btn-accion btn-inactivar'>Inactivar</a>" 
+                                : "<a href='acciones.php?NIT=" . $row['NIT'] . "&accion=activar' class='btn-accion btn-activar'>Activar</a>";
                             echo "</td>";
                     }
                 } else {
