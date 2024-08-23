@@ -161,6 +161,19 @@ h1 {
     }
 }
 
+/* .error {
+    color: red;
+    margin-top: 10px;
+} */
+
+.error-message {
+    color: red;
+    font-size: 0.875em;
+    display: block;
+    margin-top: 5px;
+}
+
+
 .footer {
     background-color: #333;
     color: #fff;
