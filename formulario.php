@@ -38,7 +38,11 @@
                         header('Location: index.php?message=Proveedor%20Creado%20Correctamente');
                         exit();
                     } else {
-                        echo "<p class='error-message'>Error al agregar proveedor: " . $stmt->error . "</p>";
+                        if($stmt->errno == 1062) {
+                            echo "<p class='error-message'>El NIT ingresado ya está registrado. Por favor, verifica los datos e intenta nuevamente.</p>";
+                        }else {
+                            echo "<p class='error-message'>Error al agregar proveedor: " . $stmt->error . "</p>";
+                        }
                     }
         
                     $stmt->close(); // Cerramos la consulta preparada
