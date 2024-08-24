@@ -9,7 +9,7 @@
 <body>
     <nav class="navbar">
         <div class="container">
-            <a href="#" class="brand">Proveedores</a>
+            <a href="index.php" class="brand">Proveedores</a>
             <ul class="nav-links">
                 <li class="btn-nav"><a href="index.php">Inicio</a></li>
                 <li class="btn-nav"><a href="proveedores-activo.php">Proveedores Activos</a></li>
