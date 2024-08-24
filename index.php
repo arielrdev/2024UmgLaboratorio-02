@@ -26,6 +26,7 @@
                     // Recorre cada fila del resultado
                     while ($row = $result->fetch_assoc()) {
                         $estado = ($row['Activo'] ==1) ? 'Activo' : 'Inactivo';
+
                         echo "<tr>";
                             echo "<td>" . htmlspecialchars($row['NIT']) . "</td>";
                             echo "<td>" . htmlspecialchars($row['NombreCompleto']) . "</td>";
@@ -39,6 +40,7 @@
                                 ? "<a href='acciones.php?NIT=" . $row['NIT'] . "&accion=inactivar' class='btn-accion btn-inactivar'>Inactivar</a>" 
                                 : "<a href='acciones.php?NIT=" . $row['NIT'] . "&accion=activar' class='btn-accion btn-activar'>Activar</a>";
                             echo "</td>";
+                        echo "</tr>";
                     }
                 } else {
                     echo "<tr><td colspan='5'>No hay proveedores registrados.</td></tr>";

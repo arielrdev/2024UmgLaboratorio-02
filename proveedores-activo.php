@@ -34,7 +34,7 @@
                         echo "</tr>";
                     }
                 } else {
-                    echo "<tr><td colspan='5'>No hay proveedores registrados.</td></tr>";
+                    echo "<tr><td colspan='5'>No hay proveedores activos.</td></tr>";
                 }
             } else {
                 echo "<tr><td colspan='5'>Error en la consulta: " . $mysqli->error . "</td></tr>";
