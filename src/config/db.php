@@ -1,5 +1,5 @@
 <?php
-function conectarDB() {
+function conectarDB() : mysqli {
     $db = mysqli_connect('localhost', 'desarrollo_web', 'desarrollo', 'desarrollo_web');
 
     if(!$db) {
