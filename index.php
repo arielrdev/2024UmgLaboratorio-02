@@ -1,5 +1,8 @@
 <?php include('./src/templates/header.php'); ?>
 <?php include('./src/config/db.php'); ?>
+<?php 
+    $db = conectarDB();
+?>
 
 <div class="container">
     <h1>Listado de Proveedores</h1>
@@ -18,7 +21,7 @@
         <?php 
             // Consulta para obtener los proveedores
             $query = "SELECT NIT, NombreCompleto, Telefono, Direccion, Activo FROM Proveedor";
-            $result = $mysqli->query($query);
+            $result = $db->query($query);
 
             if ($result) {
                 // Verifica si hay filas en el resultado
@@ -46,11 +49,11 @@
                     echo "<tr><td colspan='5'>No hay proveedores registrados.</td></tr>";
                 }
             } else {
-                echo "<tr><td colspan='5'>Error en la consulta: " . $mysqli->error . "</td></tr>";
+                echo "<tr><td colspan='5'>Error en la consulta: " . $db->error . "</td></tr>";
             }
 
             // Cierra la conexión a la base de datos
-            $mysqli->close();
+            $db->close();
         ?>
         </tbody>
     </table>

@@ -1,5 +1,8 @@
 <?php include('./src/templates/header.php');?>
 <?php include('./src/config/db.php') ?>
+<?php 
+    $db = conectarDB();
+?>
 
 <div class="container">
     <h1>Nuevo Proveedor</h1>
@@ -30,7 +33,7 @@
                 // Consulta para insertar un nuevo proveedor
                 $query = "INSERT INTO Proveedor (NIT, NombreCompleto, Telefono, Direccion, Activo ) VALUES (?, ?, ?, ?, 1)";
 
-                if ($stmt = $mysqli->prepare($query)) {
+                if ($stmt = $db->prepare($query)) {
                     $stmt->bind_param('ssss', $nit, $nombre, $telefono, $direccion);
         
                     if ($stmt->execute()) {
@@ -47,7 +50,7 @@
         
                     $stmt->close(); // Cerramos la consulta preparada
                 } else {
-                    echo "<p class='error-message'>Error al preparar la consulta: " . $mysqli->error . "</p>";
+                    echo "<p class='error-message'>Error al preparar la consulta: " . $db->error . "</p>";
                 }
             }else {
                 /** Mostrar los ERRORES */
@@ -57,7 +60,7 @@
                 }
                 echo "</div>";
             }
-            cerrarConexion($mysqli); // Cerramos la conexión
+            $db->close(); // Cerramos la conexión
         }
 
     ?>
