@@ -1,7 +1,14 @@
 <?php include('./src/templates/header.php');?>
 <?php include('./src/config/db.php') ?>
+<?php include('./src/funciones/funciones.php')?>
 <?php 
     $db = conectarDB();
+
+    protegerRuta();
+
+    // if(!$auth) {
+    //     header('Location: /Laboratorio02/login.php');
+    // }
 ?>
 
 <div class="container">

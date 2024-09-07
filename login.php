@@ -7,9 +7,6 @@
     $errores = [];
     
     if($_SERVER['REQUEST_METHOD'] === 'POST') {
-        // echo "<pre>";
-        // var_dump($_POST);
-        // echo "</pre>";
 
         $username = mysqli_real_escape_string($db, $_POST['username']);
         $password = mysqli_real_escape_string($db, $_POST['password']);
@@ -26,8 +23,6 @@
             /** Revisar si el usuario existe. */
             $query = " SELECT * FROM userauth WHERE username = '${username}' ";
             $resultado = mysqli_query($db, $query);
-            var_dump($resultado);
-
             if($resultado->num_rows) {
                 /** Revisar si el password es correcto */
                 $usuario = mysqli_fetch_assoc($resultado);
@@ -38,7 +33,17 @@
                 
                 if($auth) {
                     /** El usuario esta autenticado */
-                    
+                    session_start();
+
+                    /** LLenar el arrelgo de la sesion */
+                    $_SESSION['username'] = $usuario['username'];
+                    $_SESSION['login'] = true;
+
+                    // Redirigir al destino original si existe
+                    $redirect_to = $_GET['redirect_to'] ?? 'index.php';
+                    var_dump($redirect_to);
+                    header('Location: ' . $redirect_to);
+                    exit();
                 }else{
                     /** Password Incorrecto */
                     $errores[] = 'El Password es incorrecto';
