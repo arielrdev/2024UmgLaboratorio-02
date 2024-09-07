@@ -16,10 +16,10 @@
 <body>
     <nav class="navbar">
         <div class="container">
-            <a href="index.php" class="brand">Proveedores</a>
+            <a href="index.php" class="brand">Sistema Proveedores</a>
             <ul class="nav-links">
                 <li class="btn-nav"><a href="index.php">Inicio</a></li>
-                <li class="btn-nav"><a href="lista-proveedores.php">Desactivar Proveedores</a></li>
+                <li class="btn-nav"><a href="lista-proveedores.php">Desactivar | Activar</a></li>
                 <li class="btn-nav"><a href="formulario.php">Crear Proveedor</a></li>
                 <?php if($auth): ?>
                     <li class="user-info">Usuario: <?php echo htmlspecialchars($username); ?></li>

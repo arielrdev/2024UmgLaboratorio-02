@@ -56,7 +56,7 @@
     }
 ?>
 
-<div class="container">
+<div class="container contenido-centrado">
     <h1>Iniciar Sessión</h1>
     <?php foreach($errores as $error): ?>
         <div class="error-message">
@@ -66,11 +66,14 @@
     <form id="proveedorForm" method="POST" novalidate>
         <div class="form-group contenido-centrado">
             <legend>Usuario y Password</legend>
-            <label for="username">Usuario</label>
-            <input type="text" id="username" name="username">
-
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password">
+            <div class="form-group">
+                <label for="username">Usuario</label>
+                <input type="text" id="username" name="username">
+            </div>
+            <div class="form-group">   
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password">
+            </div>
         </div>
     
         <button type="submit" class="btn">Iniciar Sessión</button>

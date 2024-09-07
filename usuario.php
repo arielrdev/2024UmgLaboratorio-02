@@ -2,9 +2,9 @@
 <?php 
     $db = conectarDB();
 
-    $commonname = "Eder";
-    $username = "eder";
-    $password = "123456";
+    $commonname = "Administrador";
+    $username = "admin";
+    $password = "admin";
 
     /** Hash password */
     $passwordHash = password_hash($password, PASSWORD_BCRYPT);

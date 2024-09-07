@@ -11,7 +11,7 @@
     // }
 ?>
 
-<div class="container">
+<div class="container contenido-centrado">
     <h1>Nuevo Proveedor</h1>
     <?php 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
