@@ -16,6 +16,7 @@
 
             // Validaciones del lado del servidor
             $errores = [];
+            
             if (empty($nit) || !preg_match('/^\d{8,12}$/', $nit)) {
                 $errores[] = "El NIT debe tener entre 8 y 12 dígitos.";
             }
