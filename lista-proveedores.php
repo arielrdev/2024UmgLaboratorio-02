@@ -3,7 +3,6 @@
 <?php include('./src/funciones/funciones.php')?>
 <?php 
     $db = conectarDB();
-
     protegerRuta();
 ?>
 

@@ -1,3 +1,10 @@
+<?php 
+        session_start(); // Iniciar la sesión
+
+        // Verificar si el usuario está autenticado
+        $auth = $_SESSION['login'] ?? false;
+        $username = $_SESSION['username'] ?? '';
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -14,6 +21,10 @@
                 <li class="btn-nav"><a href="index.php">Inicio</a></li>
                 <li class="btn-nav"><a href="lista-proveedores.php">Desactivar Proveedores</a></li>
                 <li class="btn-nav"><a href="formulario.php">Crear Proveedor</a></li>
+                <?php if($auth): ?>
+                    <li class="user-info">Usuario: <?php echo htmlspecialchars($username); ?></li>
+                    <li class="btn-nav--logout"><a class="btn-logout" href="logout.php">Cerrar Sesión</a></li>
+                <?php endif; ?>
             </ul>
         </div>
     </nav>
